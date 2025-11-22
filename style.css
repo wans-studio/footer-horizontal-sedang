@@ -1,0 +1,344 @@
+/* ===========================
+   Global Styles
+   =========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* ===========================
+   Footer Gradient Background
+   =========================== */
+.footer-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 50%, rgba(240, 147, 251, 0.8) 100%);
+    opacity: 0.9;
+}
+
+.footer-gradient > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===========================
+   Footer Column Animations
+   =========================== */
+.footer-column {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.footer-column:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.footer-column:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.footer-column:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.footer-column:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   Hover Link Effects
+   =========================== */
+.hover-link {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+    padding-bottom: 2px;
+}
+
+.hover-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+    transition: width 0.3s ease;
+}
+
+.hover-link:hover {
+    color: #ffffff !important;
+    transform: translateX(3px);
+}
+
+.hover-link:hover::after {
+    width: 100%;
+}
+
+/* ===========================
+   Social Media Icons
+   =========================== */
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.social-icon:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.social-icon:hover i {
+    animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Social media specific colors on hover */
+.social-icon:nth-child(1):hover {
+    background: #1877f2; /* Facebook */
+}
+
+.social-icon:nth-child(2):hover {
+    background: #1da1f2; /* Twitter */
+}
+
+.social-icon:nth-child(3):hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); /* Instagram */
+}
+
+.social-icon:nth-child(4):hover {
+    background: #0077b5; /* LinkedIn */
+}
+
+.social-icon:nth-child(5):hover {
+    background: #ff0000; /* YouTube */
+}
+
+.social-icon:nth-child(6):hover {
+    background: #25d366; /* WhatsApp */
+}
+
+/* ===========================
+   Footer Scroll Animation
+   =========================== */
+#footer.footer-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* ===========================
+   Newsletter Input Styling
+   =========================== */
+input[type="email"] {
+    transition: all 0.3s ease;
+}
+
+input[type="email"]:focus {
+    transform: scale(1.02);
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .footer-gradient .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    
+    .social-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .footer-gradient {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    .footer-column {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .footer-column h3 {
+        display: inline-block;
+    }
+    
+    .footer-column h3 span {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-column ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .hover-link:hover {
+        transform: translateX(0);
+    }
+}
+
+.watermark {
+    position: fixed;     
+    top: 50%;             
+    left: 50%;            
+    transform: translate(-50%, -50%);
+    opacity: 0.15;        
+    pointer-events: none;
+    z-index: 9999;        
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .footer-gradient .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .footer-column h3 {
+        font-size: 1.125rem;
+    }
+    
+    .social-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+}
+
+/* ===========================
+   Main Content Styling
+   =========================== */
+main {
+    min-height: 60vh;
+}
+
+.container h1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Card Hover Effects */
+main .bg-white {
+    transition: all 0.3s ease;
+}
+
+main .bg-white:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================
+   Accessibility
+   =========================== */
+a:focus,
+button:focus,
+input:focus {
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
+}
+
+/* ===========================
+   Print Styles
+   =========================== */
+@media print {
+    .footer-gradient {
+        background: #667eea;
+        color: white;
+    }
+    
+    .social-icon {
+        border: 1px solid white;
+    }
+}
+
+/* ===========================
+   Smooth Scrolling
+   =========================== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===========================
+   Custom Scrollbar (Webkit)
+   =========================== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
